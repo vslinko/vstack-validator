@@ -45,7 +45,7 @@ type SchemaChildren = ?({[key: string]: Schema} | Array<Schema> | Schema);
 ## Usage
 
 ```js
-import {schema} from '../src';
+import {schema} from 'vstack-validator';
 
 var userSchema = schema.type('user', {
   email: {
