@@ -138,14 +138,14 @@ export var isEmpty = createConstraint(
 
 export function createMinLengthConstraint(minLength: number, message: ?ErrorMessage = null) {
   return createConstraint(
-    value => value.length >= minLength,
+    value => value && value.length >= minLength,
     message || `Value length is less than ${minLength}`
   );
 }
 
 export function createMaxLengthConstraint(maxLength: number, message: ?ErrorMessage = null) {
   return createConstraint(
-    value => value.length <= maxLength,
+    value => value && value.length <= maxLength,
     message || `Value length is more than ${maxLength}`
   );
 }
