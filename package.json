@@ -1,6 +1,6 @@
 {
   "name": "vstack-validator",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Declarative validator for complex deep structures",
   "keywords": [],
   "homepage": "https://github.com/vslinko/vstack-validator",
@@ -42,7 +42,7 @@
     "karma-junit-reporter": "^0.3.8",
     "karma-mocha": "^0.2.0",
     "karma-webpack": "^1.7.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.5.1",
     "mocha": "^2.3.3",
     "sinon": "^1.17.2",
     "webpack": "^1.12.2"

@@ -1,20 +1,20 @@
 /* @flow */
 
-import _isArray from 'lodash/lang/isArray';
-import _isBoolean from 'lodash/lang/isBoolean';
-import _isDate from 'lodash/lang/isDate';
-import _isEmpty from 'lodash/lang/isEmpty';
-import _isFinite from 'lodash/lang/isFinite';
-import _isFunction from 'lodash/lang/isFunction';
-import _isNaN from 'lodash/lang/isNaN';
-import _isNull from 'lodash/lang/isNull';
-import _isNumber from 'lodash/lang/isNumber';
-import _isObject from 'lodash/lang/isObject';
-import _isPlainObject from 'lodash/lang/isPlainObject';
-import _isRegExp from 'lodash/lang/isRegExp';
-import _isString from 'lodash/lang/isString';
-import _isTypedArray from 'lodash/lang/isTypedArray';
-import _isUndefined from 'lodash/lang/isUndefined';
+import _isArray from 'lodash/isArray';
+import _isBoolean from 'lodash/isBoolean';
+import _isDate from 'lodash/isDate';
+import _isEmpty from 'lodash/isEmpty';
+import _isFinite from 'lodash/isFinite';
+import _isFunction from 'lodash/isFunction';
+import _isNaN from 'lodash/isNaN';
+import _isNull from 'lodash/isNull';
+import _isNumber from 'lodash/isNumber';
+import _isObject from 'lodash/isObject';
+import _isPlainObject from 'lodash/isPlainObject';
+import _isRegExp from 'lodash/isRegExp';
+import _isString from 'lodash/isString';
+import _isTypedArray from 'lodash/isTypedArray';
+import _isUndefined from 'lodash/isUndefined';
 
 // Type validators
 
