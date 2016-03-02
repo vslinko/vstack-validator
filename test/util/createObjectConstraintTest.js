@@ -1,14 +1,14 @@
-import {assert} from 'chai';
+import { assert } from 'chai';
 
 import createConstraint from '../../src/util/createConstraint';
 import createObjectConstraint from '../../src/util/createObjectConstraint';
 
 describe('createObjectConstraint', () => {
-  var constraint = createObjectConstraint({
+  const constraint = createObjectConstraint({
     e1: createConstraint(value => value === 'test', 'Error1'),
     e2: createConstraint(value => value === 'test', 'Error2'),
   });
-  var constraintWithCustomErrorMessage = createObjectConstraint({
+  const constraintWithCustomErrorMessage = createObjectConstraint({
     e1: createConstraint(value => value === 'test', 'Error1'),
     e2: createConstraint(value => value === 'test', 'Error2'),
   }, 'Custom Error Message');
@@ -25,7 +25,7 @@ describe('createObjectConstraint', () => {
   });
 
   it('should return valid constraint result when value is valid', () => {
-    return constraint({e1: 'test', e2: 'test'})
+    return constraint({ e1: 'test', e2: 'test' })
       .then((result) => {
         assert.deepEqual(result, {
           valid: true,
@@ -47,7 +47,7 @@ describe('createObjectConstraint', () => {
   });
 
   it('should return valid constraint result when value is invalid', () => {
-    return constraint({e1: 'test', e2: ''})
+    return constraint({ e1: 'test', e2: '' })
       .then((result) => {
         assert.deepEqual(result, {
           valid: false,
@@ -69,7 +69,7 @@ describe('createObjectConstraint', () => {
   });
 
   it('should return use custom error message', () => {
-    return constraintWithCustomErrorMessage({e1: '', e2: ''})
+    return constraintWithCustomErrorMessage({ e1: '', e2: '' })
       .then((result) => {
         assert.deepEqual(result, {
           valid: false,

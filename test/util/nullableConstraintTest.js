@@ -1,10 +1,10 @@
-import {assert} from 'chai';
+import { assert } from 'chai';
 
 import createConstraint from '../../src/util/createConstraint';
 import nullableConstraint from '../../src/util/nullableConstraint';
 
 describe('nullableConstraint', () => {
-  var constraint = nullableConstraint(
+  const constraint = nullableConstraint(
     createConstraint(() => false, 'Error1')
   );
 

@@ -1,8 +1,6 @@
-/* eslint-disable no-var */
+const path = require('path');
 
-var path = require('path');
-
-module.exports = function karma(config) {
+module.exports = (config) => {
   config.set({
     frameworks: ['mocha'],
 

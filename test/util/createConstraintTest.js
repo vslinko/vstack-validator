@@ -1,12 +1,12 @@
-import {assert} from 'chai';
+import { assert } from 'chai';
 
 import createConstraint from '../../src/util/createConstraint';
 
 describe('createConstraint', () => {
-  var constraint = createConstraint(
+  const constraint = createConstraint(
     value => value === 'test'
   );
-  var constraintWithCustomErrorMessage = createConstraint(
+  const constraintWithCustomErrorMessage = createConstraint(
     value => value === 'test',
     'Custom Error Message'
   );

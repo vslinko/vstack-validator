@@ -1,13 +1,13 @@
-import {assert} from 'chai';
+import { assert } from 'chai';
 
 import createConstraint from '../../src/util/createConstraint';
 import createArrayConstraint from '../../src/util/createArrayConstraint';
 
 describe('createArrayConstraint', () => {
-  var constraint = createArrayConstraint(
+  const constraint = createArrayConstraint(
     createConstraint((value) => value === 'test', 'Error1')
   );
-  var constraintWithCustomErrorMessage = createArrayConstraint(
+  const constraintWithCustomErrorMessage = createArrayConstraint(
     createConstraint((value) => value === 'test', 'Error1'),
     'Custom Error Message'
   );

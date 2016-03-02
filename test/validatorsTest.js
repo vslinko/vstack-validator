@@ -374,7 +374,7 @@ describe('validators', () => {
 
       assert.isTrue(validators.isNotEmpty('A'));
       assert.isTrue(validators.isNotEmpty([1]));
-      assert.isTrue(validators.isNotEmpty({a: 1}));
+      assert.isTrue(validators.isNotEmpty({ a: 1 }));
     });
   });
 
@@ -397,7 +397,7 @@ describe('validators', () => {
 
       assert.isFalse(validators.isEmpty('A'));
       assert.isFalse(validators.isEmpty([1]));
-      assert.isFalse(validators.isEmpty({a: 1}));
+      assert.isFalse(validators.isEmpty({ a: 1 }));
     });
   });
 });

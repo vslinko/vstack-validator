@@ -1,8 +1,9 @@
 {
+  "parser": "babel-eslint",
   "extends": "eslint-config-airbnb",
+  "plugins": ["flowtype"],
   "rules": {
-    "no-var": 0,
-    "no-use-before-define": 0,
-    "vars-on-top": 0
+    "no-param-reassign": 1,
+    "no-use-before-define": 1
   }
 }

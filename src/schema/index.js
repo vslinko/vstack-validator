@@ -68,9 +68,9 @@ function fields(fieldMap: FieldMap): SchemaMap {
 }
 
 function object(fieldMap: FieldMap, name: ?string): Schema {
-  var children = fields(fieldMap);
+  const children = fields(fieldMap);
 
-  var schemaConstraint = createObjectConstraint(
+  const schemaConstraint = createObjectConstraint(
     Object.keys(children)
       .reduce((acc, key) => (
         acc[key] = children[key].check,
@@ -86,7 +86,7 @@ function object(fieldMap: FieldMap, name: ?string): Schema {
 }
 
 function optional(maybeSchema: Field): Schema {
-  var schema = ensureFieldIsSchema(maybeSchema);
+  const schema = ensureFieldIsSchema(maybeSchema);
 
   return new Schema({
     type: `optional(${schema.type})`,
@@ -96,7 +96,7 @@ function optional(maybeSchema: Field): Schema {
 }
 
 function list(maybeSchema: Field): Schema {
-  var schema = ensureFieldIsSchema(maybeSchema);
+  const schema = ensureFieldIsSchema(maybeSchema);
 
   return new Schema({
     type: `list(${schema.type})`,
@@ -108,7 +108,7 @@ function list(maybeSchema: Field): Schema {
 function contextRoot(schema: Schema): Schema {
   return new Schema({
     type: schema.type,
-    check: (value, context) => schema.check(value, {value, parent: context}),
+    check: (value, context) => schema.check(value, { value, parent: context }),
     children: schema.children,
   });
 }

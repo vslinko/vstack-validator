@@ -8,25 +8,30 @@ import type {
 
 import executeMessage from './executeMessage';
 
-export default function combineConstraints(constraints: ConstraintMap, message: ?ErrorMessage = null): Constraint {
-  var keys = Object.keys(constraints);
+export default function combineConstraints(
+  constraints: ConstraintMap,
+  message: ?ErrorMessage = null
+): Constraint {
+  const keys = Object.keys(constraints);
 
-  return (value, context) => {
-    return Promise
+  return (value, context) => (
+    Promise
       .all(keys.map(key => constraints[key](value, context)))
       .then((values) => {
-        var children = keys.reduce((acc, key, index) => (
+        const children = keys.reduce((acc, key, index) => (
           acc[key] = values[index],
           acc
         ), {});
 
-        var valid = keys.every(key => children[key].valid);
+        const valid = keys.every(key => children[key].valid);
 
         return {
           valid,
-          message: valid ? null : executeMessage(value, context, children, message || 'Value is not valid'),
+          message: valid
+            ? null
+            : executeMessage(value, context, children, message || 'Value is not valid'),
           children,
         };
-      });
-  };
+      })
+  );
 }

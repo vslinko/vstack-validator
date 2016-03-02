@@ -1,14 +1,14 @@
-import {assert} from 'chai';
+import { assert } from 'chai';
 
 import createConstraint from '../../src/util/createConstraint';
 import combineConstraints from '../../src/util/combineConstraints';
 
 describe('combineConstraints', () => {
-  var constraint = combineConstraints({
+  const constraint = combineConstraints({
     e1: createConstraint(value => value === 'test', 'Error1'),
     e2: createConstraint(value => value === 'test', 'Error2'),
   });
-  var constraintWithCustomErrorMessage = combineConstraints({
+  const constraintWithCustomErrorMessage = combineConstraints({
     e1: createConstraint(value => value === 'test', 'Error1'),
     e2: createConstraint(value => value === 'test', 'Error2'),
   }, 'Custom Error Message');

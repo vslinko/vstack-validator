@@ -12,7 +12,7 @@ class Schema {
   check: Constraint;
   children: SchemaChildren;
 
-  constructor({type, check, children}: SchemaOptions) {
+  constructor({ type, check, children }: SchemaOptions) {
     this.type = type;
     this.check = (value, context) => check(value, context || value);
     this.children = children;

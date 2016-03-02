@@ -2,33 +2,33 @@ import { assert } from 'chai';
 
 import * as constraints from '../src/constraints';
 
-function tests({name, constraint, validValues, invalidValues, message}) {
+function tests({ name, constraint, validValues, invalidValues, message }) {
   describe(name, () => {
-    it('should return valid constraint result when value is valid', () => {
-      return Promise.all(validValues.map((validValue) => {
-        return constraint(validValue)
+    it('should return valid constraint result when value is valid', () => (
+      Promise.all(validValues.map((validValue) => (
+        constraint(validValue)
           .then((result) => {
             assert.deepEqual(result, {
               valid: true,
               message: null,
               children: null,
             });
-          });
-      }));
-    });
+          })
+      )))
+    ));
 
-    it('should return valid constraint result when value is invalid', () => {
-      return Promise.all(invalidValues.map((invalidValue) => {
-        return constraint(invalidValue)
+    it('should return valid constraint result when value is invalid', () => (
+      Promise.all(invalidValues.map((invalidValue) => (
+        constraint(invalidValue)
           .then((result) => {
             assert.deepEqual(result, {
               valid: false,
               message,
               children: null,
             });
-          });
-      }));
-    });
+          })
+      )))
+    ));
   });
 }
 

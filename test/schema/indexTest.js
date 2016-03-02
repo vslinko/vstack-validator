@@ -49,7 +49,7 @@ describe('object', () => {
     assert.deepPropertyVal(object, 'children.name.type', 'name');
     assert.deepPropertyVal(object, 'children.name.children', null);
 
-    return object.check({name: null})
+    return object.check({ name: null })
       .then((result) => {
         assert.deepPropertyVal(result, 'children.name.children.notNull.valid', false);
       });
@@ -112,7 +112,7 @@ describe('contextRoot', () => {
     assert.deepPropertyVal(contextRoot, 'type', 'test');
     assert.deepPropertyVal(contextRoot, 'children', null);
 
-    return contextRoot.check({v: 1}, {v: 2});
+    return contextRoot.check({ v: 1 }, { v: 2 });
   });
 });
 
@@ -138,7 +138,7 @@ describe('type', () => {
     assert.deepPropertyVal(type, 'children.name.type', 'name');
     assert.deepPropertyVal(type, 'children.name.children', null);
 
-    return type.check({name: {v: 1}}, {v: 2})
+    return type.check({ name: { v: 1 } }, { v: 2 })
       .then((result) => {
         assert.deepPropertyVal(result, 'children.name.valid', false);
       });

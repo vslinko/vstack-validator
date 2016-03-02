@@ -1,11 +1,11 @@
 /* @flow */
 
-import {schema} from '../src';
+import { schema } from '../src';
 import betterLog from 'better-log';
 
-var log = betterLog.setConfig({depth: null});
+const log = betterLog.setConfig({ depth: null });
 
-var userSchema = schema.type('user', {
+const userSchema = schema.type('user', {
   email: {
     notEmpty: schema.constraint(schema.validators.isNotEmpty, 'Email is empty'),
     email: schema.constraint(schema.validators.isEmail, 'Email is not valid'),
@@ -16,13 +16,13 @@ var userSchema = schema.type('user', {
   }),
 });
 
-var itemSchema = schema.type('item', {
+const itemSchema = schema.type('item', {
   name: {
     notEmpty: schema.constraint(schema.validators.isNotEmpty, 'Name is empty'),
   },
 });
 
-var cartSchema = schema.type('cart', {
+const cartSchema = schema.type('cart', {
   user: userSchema,
   items: schema.list(itemSchema),
 });

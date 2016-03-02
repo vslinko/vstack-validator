@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import { assert } from 'chai';
 
 import executeMessage from '../../src/util/executeMessage';
 
@@ -12,7 +12,12 @@ describe('executeMessage', () => {
 
   it('should call message if message is function', () => {
     assert.equal(
-      executeMessage('value', 'context', 'children', (value, context, children) => value + context + children),
+      executeMessage(
+        'value',
+        'context',
+        'children',
+        (value, context, children) => value + context + children
+      ),
       'valuecontextchildren'
     );
   });

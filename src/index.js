@@ -1,22 +1,10 @@
-import combineConstraints from './util/combineConstraints';
-import createArrayConstraint from './util/createArrayConstraint';
-import createConstraint from './util/createConstraint';
-import createObjectConstraint from './util/createObjectConstraint';
-import executeMessage from './util/executeMessage';
-import nullableConstraint from './util/nullableConstraint';
+export { default as combineConstraints } from './util/combineConstraints';
+export { default as createArrayConstraint } from './util/createArrayConstraint';
+export { default as createConstraint } from './util/createConstraint';
+export { default as createObjectConstraint } from './util/createObjectConstraint';
+export { default as executeMessage } from './util/executeMessage';
+export { default as nullableConstraint } from './util/nullableConstraint';
 
-import * as validators from './validators';
-import * as constraints from './constraints';
-import schema from './schema';
-
-export default {
-  combineConstraints,
-  createArrayConstraint,
-  createConstraint,
-  createObjectConstraint,
-  executeMessage,
-  nullableConstraint,
-  validators,
-  constraints,
-  schema,
-};
+export * as validators from './validators';
+export * as constraints from './constraints';
+export { default as schema } from './schema';
