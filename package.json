@@ -20,7 +20,8 @@
     "url": "vslinko/vstack-validator"
   },
   "scripts": {
-    "example": "babel-node example/schema.js",
+    "example-schema": "babel-node example/schema.js",
+    "example-conditionalSchema": "babel-node example/conditionalSchema.js",
     "prepublish": "rm -rf lib && babel -d lib src",
     "lint": "eslint example src test karma.conf.js",
     "test": "karma start"
