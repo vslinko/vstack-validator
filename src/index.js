@@ -8,3 +8,4 @@ export { default as nullableConstraint } from './util/nullableConstraint';
 export * as validators from './validators';
 export * as constraints from './constraints';
 export { default as schema } from './schema';
+export { default as Schema } from './schema/Schema';

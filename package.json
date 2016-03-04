@@ -1,6 +1,6 @@
 {
   "name": "vstack-validator",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Declarative validator for complex deep structures",
   "keywords": [],
   "homepage": "https://github.com/vslinko/vstack-validator",
