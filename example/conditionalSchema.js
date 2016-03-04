@@ -1,6 +1,6 @@
 /* @flow */
 
-import { schema } from '../src';
+import { schema, combineConstraints } from '../src';
 import Schema from '../src/schema/Schema';
 import betterLog from 'better-log';
 
@@ -24,28 +24,45 @@ function conditionalSchema({ hash, mapping }) {
   });
 }
 
+function combineSchemas(schemas) {
+  return new Schema({
+    type: 'combine',
+    check: combineConstraints(
+      Object.keys(schemas)
+        .reduce((acc, key) => (
+          acc[key] = schemas[key].check || schemas[key],
+          acc
+        ), {})
+    ),
+    children: schemas,
+  });
+}
+
 const dataSchema = schema.type('data', {
   title: {
     notEmpty: schema.isNotEmpty,
   },
-  items: schema.list(conditionalSchema({
-    hash: (item) => String(item.type),
-    mapping: {
-      a: schema.type('a', {
-        foo: {
-          notEmpty: schema.isNotEmpty,
-        },
-        bar: {
-          notEmpty: schema.isNotEmpty,
-        },
-      }),
-      b: schema.type('b', {
-        baz: {
-          notEmpty: schema.isNotEmpty,
-        },
-      }),
-    },
-  })),
+  items: combineSchemas({
+    isNotEmpty: schema.isNotEmpty,
+    values: schema.list(conditionalSchema({
+      hash: (item) => String(item.type),
+      mapping: {
+        a: schema.type('a', {
+          foo: {
+            notEmpty: schema.isNotEmpty,
+          },
+          bar: {
+            notEmpty: schema.isNotEmpty,
+          },
+        }),
+        b: schema.type('b', {
+          baz: {
+            notEmpty: schema.isNotEmpty,
+          },
+        }),
+      },
+    })),
+  }),
 });
 
 log(dataSchema);
