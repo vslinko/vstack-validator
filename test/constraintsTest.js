@@ -206,8 +206,8 @@ describe('constraints', () => {
   tests({
     name: 'createMinConstraint',
     constraint: constraints.createMinConstraint('c', 'x'),
-    validValues: ['d', 'e'],
-    invalidValues: ['a', 'b', null, undefined],
+    validValues: ['d', 'e', null, undefined],
+    invalidValues: ['a', 'b'],
     message: 'x',
   });
 
@@ -222,8 +222,8 @@ describe('constraints', () => {
   tests({
     name: 'createMaxConstraint',
     constraint: constraints.createMaxConstraint('c', 'x'),
-    validValues: ['a', 'b'],
-    invalidValues: ['d', 'e', null, undefined],
+    validValues: ['a', 'b', null, undefined],
+    invalidValues: ['d', 'e'],
     message: 'x',
   });
 
@@ -246,16 +246,16 @@ describe('constraints', () => {
   tests({
     name: 'createMinLengthConstraint',
     constraint: constraints.createMinLengthConstraint(2),
-    validValues: ['abc', 'yz', [1, 2, 3], [-1, 0]],
-    invalidValues: ['a', [1], null, undefined],
+    validValues: ['abc', 'yz', [1, 2, 3], [-1, 0], null, undefined],
+    invalidValues: ['a', [1]],
     message: 'Value length is less than 2',
   });
 
   tests({
     name: 'createMinLengthConstraint',
     constraint: constraints.createMinLengthConstraint(2, 'x'),
-    validValues: ['abc', 'yz', [1, 2, 3], [-1, 0]],
-    invalidValues: ['a', [1], null, undefined],
+    validValues: ['abc', 'yz', [1, 2, 3], [-1, 0], null, undefined],
+    invalidValues: ['a', [1]],
     message: 'x',
   });
 

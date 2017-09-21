@@ -113,14 +113,14 @@ export const isLowercase = createConstraint(
 
 export function createMinConstraint(min: number, message: ?ErrorMessage = null): Constraint {
   return createConstraint(
-    value => value >= min, // null and undefined are treated automatically by the comparison.
+    value => validators.isNull(value) || value >= min, // null and undefined are treated automatically by the comparison.
     message || `Value is less than ${min}`
   );
 }
 
 export function createMaxConstraint(max: number, message: ?ErrorMessage = null): Constraint {
   return createConstraint(
-    value => value <= max, // null and undefined are treated automatically by the comparison.
+    value => validators.isNull(value) || value <= max, // null and undefined are treated automatically by the comparison.
     message || `Value is more than ${max}`
   );
 }
@@ -142,7 +142,7 @@ export function createMinLengthConstraint(
   message: ?ErrorMessage = null
 ): Constraint {
   return createConstraint(
-    value => value && value.length >= minLength, // null and undefined cannot meet any minimum length requirement, even a min length of 0 is longer than null or undefined!
+    value => validators.isNull(value) || value.length >= minLength,
     message || `Value length is less than ${minLength}`
   );
 }
@@ -152,7 +152,7 @@ export function createMaxLengthConstraint(
   message: ?ErrorMessage = null
 ): Constraint {
   return createConstraint(
-    value => typeof value === "undefined" || value === null || value.length <= maxLength,// if the value is undefined or null, then it is already known to be shorter than required.  If you don't want it to be either of those, then please use the isNotNull contraint as well.
+    value => validators.isNull(value) || value.length <= maxLength,// if the value is undefined or null, then it is already known to be shorter than required.  If you don't want it to be either of those, then please use the isNotNull contraint as well.
     message || `Value length is more than ${maxLength}`
   );
 }
